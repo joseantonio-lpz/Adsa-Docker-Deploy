@@ -50,7 +50,7 @@ jobs:
             ls -lrt
             docker build -t bcm-content-ui .
             sleep 20
-            docker run -d -p 5004:4120 -v dataprotection-keys:/root/.aspnet/DataProtection-Keys --name  bcm-content-ui-container bcm-content-ui
+            docker run -d -p 5004:80 -v dataprotection-keys:/root/.aspnet/DataProtection-Keys --name  bcm-content-ui-container bcm-content-ui
             sleep 20
             echo '### Contenedores corriendo ###'
             docker ps -a
