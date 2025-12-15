@@ -23,35 +23,35 @@ jobs:
           username: ${{secrets.SSH_USERNAME_172}} # nombre de usuario
           key: ${{secrets.SSH_PRIVATE_KEY_172}} # Clave privada
           script: |
-            echo "### Path servidor 172 ###"
+            echo "###### Path servidor 172 ######"
             cd /home/GIT
             pwd
             ls -lrt 
-            echo "### Respaldo de la carpeta sa-bcm-content-ui ###"
+            echo "###### Respaldo de la carpeta sa-bcm-content-ui ######"
             mv sa-bcm-content-ui /home/GIT/sa-bcm-content-ui_$(date +'%Y%m%d-%H%M')
             ls -lrt 
-            echo '### Clonar el repositorio sa-bcm-content-ui ###'
+            echo '###### Clonar el repositorio sa-bcm-content-ui ######'
             git clone -b jvelazquez https://${{secrets.GH_ACCESS_KEY}}@github.com/jeacor/sa-bcm-content-ui.git
-            echo '### Repositorio clonado ###' 
+            echo '###### Repositorio clonado ######'
             ls -lrt
             sleep 20
-            echo '### Detener y eliminar el Contenedor sa-bcm-content-ui ###'
+            echo '###### Detener y eliminar el Contenedor sa-bcm-content-ui ######'
             docker ps
             docker stop bcm-content-ui-container
             sleep 20
             docker rm bcm-content-ui-container
-            echo '### Eliminando la imagen... ###'
+            echo '###### Eliminando la imagen... ######'
             docker images
-            sleep 40
+            sleep 20
             docker rmi bcm-content-ui
             docker images
-            echo '### Ejecutando el Build y Deploy ###'
+            echo '###### Ejecutando el Build y Deploy ######'
             cd  /home/GIT/sa-bcm-content-ui
             ls -lrt
             docker build -t bcm-content-ui .
             sleep 20
             docker run -d -p 5004:80 -v dataprotection-keys:/root/.aspnet/DataProtection-Keys --name  bcm-content-ui-container bcm-content-ui
             sleep 20
-            echo '### Contenedores corriendo ###'
+            echo '###### Contenedores corriendo ######'
             docker ps -a
-            echo '### fin del workflow ###'
+            echo '###### fin del workflow ######'
