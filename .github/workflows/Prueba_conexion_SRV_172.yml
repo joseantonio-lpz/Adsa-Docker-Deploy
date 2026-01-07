@@ -33,4 +33,7 @@ jobs:
               sleep 20
               docker images
               sleep 20
-              mail -s "Deploy realizado "projecto_X"" joseantonio.lopez@seccionamarilla.com
+             # Enviar correo 
+              cdoc 
+              docker ps -a | head -2 > deploy.txt
+              mail -s "Deloy realizado " joseantonio.lopez@seccionamarilla.com < deploy.txt
