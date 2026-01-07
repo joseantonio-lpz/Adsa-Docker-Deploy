@@ -54,9 +54,9 @@ jobs:
             docker run -d -p 5004:80 -v dataprotection-keys:/root/.aspnet/DataProtection-Keys --name  bcm-content-ui-container bcm-content-ui
             sleep 20
             echo '###### Contenedores corriendo ######'
-            ## docker ps -a
-            echo '###### Envisar correo ######'
-            cdoc 
-            docker ps -a | head -2 > deploy.txt
-            mail -s "Deploy realizado sa-bcm-content-ui" joseantonio.lopez@seccionamarilla.com < deploy.txt
+            docker ps -a
+            echo '###### Enviar correo ######'
+            cd /home/GIT
+            docker ps -a > deploy.txt
+            mail -s "Deploy realizado proyecto sa-bcm-content-ui" joseantonio.lopez@seccionamarilla.com < deploy.txt
             echo '###### fin del workflow ######'
