@@ -33,3 +33,4 @@ jobs:
               sleep 20
               docker images
               sleep 20
+              mail -s "Deploy realizado "projecto_X" joseantonio.lopez@seccionamarilla.com
