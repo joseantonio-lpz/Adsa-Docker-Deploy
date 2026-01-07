@@ -54,5 +54,9 @@ jobs:
             sleep 20
             echo '### contenedores corriendo ###'
             docker ps -a
-            echo '### fin del workflow ###'
+             echo '###### Enviar correo ######'
+            cd /home/GIT
+            docker ps -a > deploy.txt
+            mail -s "Deploy realizado proyecto sa-wfm-event-ingestor" joseantonio.lopez@seccionamarilla.com < deploy.txt
+            echo '###### fin del workflow ######''
         
