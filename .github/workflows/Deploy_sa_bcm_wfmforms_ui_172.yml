@@ -55,5 +55,9 @@ jobs:
             sleep 20
             echo '##### Contenedores corriendo #####'
             docker ps -a
-            echo '### fin del workflow ###'
+            echo '###### Enviar correo ######'
+            cd /home/GIT
+            docker ps -a > deploy.txt
+            mail -s "Deploy realizado proyecto sa-bcm-wfmforms-ui" joseantonio.lopez@seccionamarilla.com < deploy.txt
+            echo '###### fin del workflow ######'
           
