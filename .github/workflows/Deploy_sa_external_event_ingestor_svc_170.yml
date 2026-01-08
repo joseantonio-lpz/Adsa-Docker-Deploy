@@ -1,4 +1,4 @@
-name: Deploy Remoto  170 -- sa-wfm-event-consumer-svc -- 
+name: Deploy Remoto  170 -- sa-external-event-ingestor-svc -- 
 on:
   workflow_dispatch:
     branches:
