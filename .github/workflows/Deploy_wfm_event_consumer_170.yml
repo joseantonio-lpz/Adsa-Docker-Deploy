@@ -37,7 +37,7 @@ jobs:
             sleep 20
             echo '### Detener y eliminar el Contenedor wfm-event-consumer ###'
             docker ps
-            docker stop wfm-event-consumer
+            docker stop wfm-event-consumer-container
             sleep 20
             docker rm wfm-event-consumer
             echo '### eliminimar la imagen ###'
