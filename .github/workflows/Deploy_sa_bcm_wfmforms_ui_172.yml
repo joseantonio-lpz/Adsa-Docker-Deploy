@@ -58,8 +58,8 @@ jobs:
             echo '###### Enviar correo ######'
             cd /home/GIT
             docker ps -a > deploy.txt
-            echo > deploy.txt; echo 'Logs del contenedor bcm-wfmforms-ui-container' > deploy.txt; echo > deploy.txt
-            docker logs bcm-wfmforms-ui-container > deploy.txt
+            echo >> deploy.txt; echo '##### Logs del contenedor bcm-wfmforms-ui-container #####' >> deploy.txt; echo >> deploy.txt
+            docker logs bcm-wfmforms-ui-container >> deploy.txt
             mail -s "Deploy realizado proyecto sa-bcm-wfmforms-ui" joseantonio.lopez@seccionamarilla.com < deploy.txt
             echo '###### fin del workflow ######'
         
