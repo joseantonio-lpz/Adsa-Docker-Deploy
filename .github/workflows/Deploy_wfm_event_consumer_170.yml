@@ -50,12 +50,14 @@ jobs:
             ls -lrt
             docker build -t wfm-event-consumer .
             sleep 40
-            docker run -d -p 8082:8080 --name wfm-event-consumer wfm-event-consumer
+            docker run -d -p 8082:8080 --name wfm-event-consumer-container wfm-event-consumer
             sleep 20
             echo '### contenedores corriendo ###'
             docker ps -a
             echo '###### Enviar correo ######'
             cd /home/GIT
             docker ps -a > deploy.txt
+            echo >> deploy.txt; echo '##### Logs del contenedor sa-wfm-event-consumer-svc #####' >> deploy.txt; echo >> deploy.txt
+            docker logs wfm-event-consumer_container >> deploy.txt
             mail -s "Deploy realizado proyecto wfm-event-consumer" joseantonio.lopez@seccionamarilla.com < deploy.txt
             echo '###### fin del workflow ######'
