@@ -34,7 +34,7 @@ jobs:
               docker images
               sleep 20
              # Enviar correo 
-              cdoc 
+              cd /home/GIT 
               docker ps -a | head -2 > deploy.txt
-              mail -s "Deloy realizado " joseantonio.lopez@seccionamarilla.com < deploy.txt
+              mail -s "Deploy realizado " joseantonio.lopez@seccionamarilla.com < deploy.txt
               echo "Fin del workflow"
