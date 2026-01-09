@@ -39,7 +39,7 @@ jobs:
             docker ps
             docker stop wfm-event-consumer-container
             sleep 20
-            docker rm wfm-event-consumer
+            docker rm wfm-event-consumer-container
             echo '### eliminimar la imagen ###'
             docker images
             sleep 20
